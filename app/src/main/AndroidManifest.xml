@@ -3,13 +3,14 @@
           package="org.talcrafts.udhari">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="org.talcrafts.udhari.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -17,37 +18,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.talcrafts.udhari.SettingsActivity"
-            android:parentActivityName="org.talcrafts.udhari.MainActivity"/>
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name="org.talcrafts.udhari.AddCardActivity"
-            android:parentActivityName="org.talcrafts.udhari.MainActivity"
+            android:name=".AddCardActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateVisible"/>
+        <activity
+            android:name=".AnswerActivity"
+            android:parentActivityName=".MainActivity"/>
 
-        <activity android:name="org.talcrafts.udhari.AnswerActivity"
-                  android:parentActivityName="org.talcrafts.udhari.MainActivity"/>
         <service
-            android:name="org.talcrafts.udhari.data.AddTxService"
+            android:name=".data.AddTxService"
             android:exported="false"/>
         <service
-            android:name="org.talcrafts.udhari.reminders.NotificationService"
+            android:name=".reminders.NotificationService"
             android:exported="false"/>
         <service
-            android:name="org.talcrafts.udhari.reminders.ScheduledJobService"
+            android:name=".reminders.ScheduledJobService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-
         <provider
-            android:name="org.talcrafts.udhari.data.TxProvider"
+            android:name=".data.TxProvider"
             android:authorities="org.talcrafts.udhari"
             android:exported="true"/>
 
         <service
-            android:name="org.talcrafts.udhari.widget.WidgetUpdateService"
+            android:name=".widget.WidgetUpdateService"
             android:exported="false"/>
 
-        <receiver android:name="org.talcrafts.udhari.widget.UdhariWidget">
+        <receiver android:name=".widget.UdhariWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
@@ -56,5 +57,9 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget"/>
         </receiver>
+
+        <activity android:name=".QrCodeActivity">
+        </activity>
     </application>
+
 </manifest>
