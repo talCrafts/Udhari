@@ -1,32 +1,54 @@
 package org.talcrafts.udhari;
 
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.Result;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
 import java.util.EnumMap;
 
+import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.WHITE;
 
-public class QrCodeActivity extends AppCompatActivity {
+public class QrCodeActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
+    private ZXingScannerView mScannerView;
     private ImageView mImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
+        ViewGroup contentFrame = (ViewGroup) findViewById(R.id.content_frame);
+        mScannerView = new ZXingScannerView(this);
+        mScannerView.setResultHandler(this);
+        contentFrame.addView(mScannerView);
+
         mImageView = (ImageView) findViewById(R.id.qr_code_id);
         mImageView.setImageBitmap(endcode("Udhari"));
     }
+
+    @Override
+    public void handleResult(Result result) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Scan Result");
+        builder.setMessage(result.getText());
+        AlertDialog alert1 = builder.create();
+        alert1.show();
+
+    }
+
 
     private Bitmap endcode(String input) {
         BarcodeFormat format = BarcodeFormat.QR_CODE;

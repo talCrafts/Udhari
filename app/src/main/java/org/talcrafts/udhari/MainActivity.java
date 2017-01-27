@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             public void onClick(View v) {
                 // TODO change to QR Code
                 Intent addCard = new Intent(MainActivity.this, QrCodeActivity.class);
-                MainActivity.this.startActivity(addCard);
+                startActivity(addCard);
             }
         });
         getLoaderManager().initLoader(LOADER_ID, null, this);
