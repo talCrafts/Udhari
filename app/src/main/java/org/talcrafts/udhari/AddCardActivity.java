@@ -46,7 +46,13 @@ public class AddCardActivity extends AppCompatActivity {
 
     private void submit() {
         String date = mTextInputQuestion.getText().toString().trim();
+
+        //TODO  get string from user and move it resolve date picker
+
         String amount = mTextInputAnswer.getText().toString().trim();
+        //TODO numbers are getting
+
+
 
         if (date.length() == 0) {
             mTextInputQuestion.setError(getString(R.string.error_input_question));
@@ -69,7 +75,7 @@ public class AddCardActivity extends AppCompatActivity {
             finish();
 //            }
         } else {
-            Snackbar.make(findViewById(R.id.content), getString(R.string.complete_form)
+            Snackbar.make(findViewById(R.id.date), getString(R.string.complete_form)
                     , Snackbar.LENGTH_SHORT).show();
         }
     }

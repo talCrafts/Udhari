@@ -26,7 +26,7 @@ public class TxDBHelper extends SQLiteOpenHelper {
             DatabaseContract.TABLE_TRANSACTIONS + " (" +
             DatabaseContract.TableTransactions._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             DatabaseContract.TableTransactions.COL_DATE + " TEXT NOT NULL," +
-            DatabaseContract.TableTransactions.COL_AMOUNT + " TEXT NOT NULL )";
+            DatabaseContract.TableTransactions.COL_AMOUNT + " BIGINT NOT NULL )";
 
     private Resources mResources;
 

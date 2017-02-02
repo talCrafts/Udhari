@@ -33,7 +33,7 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.flash_list_content, parent, false);
+                .inflate(R.layout.tx_list_content, parent, false);
         return new CardViewHolder(view);
     }
 
@@ -72,7 +72,7 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
         public CardViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            textView = (TextView) itemView.findViewById(R.id.content);
+            textView = (TextView) itemView.findViewById(R.id.date);
         }
     }
 

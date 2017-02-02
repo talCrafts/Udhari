@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         syncFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO change to QR Code
                 Intent addCard = new Intent(MainActivity.this, QrCodeActivity.class);
                 startActivity(addCard);
             }
@@ -98,3 +97,4 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 }
+

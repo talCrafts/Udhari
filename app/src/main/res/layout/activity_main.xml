@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/flash_list_content"/>
+        tools:listitem="@layout/tx_list_content"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddButton"
