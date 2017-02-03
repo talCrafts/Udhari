@@ -13,6 +13,7 @@ public class Transaction implements Parcelable {
 
     public final String date;
     public final String amount;
+    public final String currency = "RS:";
 
     /**
      * Create a new Transaction from discrete values
@@ -64,7 +65,6 @@ public class Transaction implements Parcelable {
     };
 
     public String getDisplayString() {
-        return this.date + " / Rs: " + this.amount;
+        return this.date + " " + this.currency + " " + this.amount;
     }
-
 }

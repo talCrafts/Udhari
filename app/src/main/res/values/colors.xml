@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@android:color/holo_blue_light</color>
     <color name="textColor">@android:color/white</color>
-    <color name="answerBackground">#ffffbb33</color>
 </resources>
