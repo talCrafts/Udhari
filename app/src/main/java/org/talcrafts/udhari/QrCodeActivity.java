@@ -1,11 +1,20 @@
 package org.talcrafts.udhari;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -25,16 +34,21 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
 
     private ZXingScannerView mScannerView;
     private ImageView mImageView;
+    private int CAMERA_PERMISSION_CODE = 23;
+    ViewGroup contentFrame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code);
-        ViewGroup contentFrame = (ViewGroup) findViewById(R.id.content_frame);
+        contentFrame = (ViewGroup) findViewById(R.id.content_frame);
         mScannerView = new ZXingScannerView(this);
         mScannerView.setResultHandler(this);
-        contentFrame.addView(mScannerView);
-
+        if (isCameraAccessAllowed()) {
+            contentFrame.addView(mScannerView);
+        } else {
+            requestStoragePermission();
+        }
         mImageView = (ImageView) findViewById(R.id.qr_code_id);
         mImageView.setImageBitmap(endcode("Udhari"));
     }
@@ -48,7 +62,6 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
         alert1.show();
 
     }
-
 
     private Bitmap endcode(String input) {
         BarcodeFormat format = BarcodeFormat.QR_CODE;
@@ -75,4 +88,51 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
         imageView.setImageBitmap(bit);
         return bit;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mScannerView.setResultHandler(this);
+        mScannerView.startCamera();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mScannerView.stopCamera();
+    }
+
+
+    private boolean isCameraAccessAllowed() {
+        boolean flag = false;
+        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    private void requestStoragePermission() {
+
+        //And finally ask for the permission
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                contentFrame.addView(mScannerView);
+            } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.permission_camera_rationale);
+                AlertDialog alert1 = builder.create();
+                alert1.show();
+            }
+        }
+    }
+
 }
