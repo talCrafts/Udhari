@@ -17,4 +17,6 @@
     <string name="pref_cat_title_reminders">Reminders</string>
     <string name="pref_summary_reminders">Get a notification to remind you to practice</string>
     <string name="pref_key_reminders">reminders</string>
+    <string name="permission_camera_rationale">Camera Permission is needed for scanning bar code
+    </string>
 </resources>
