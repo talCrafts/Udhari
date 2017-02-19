@@ -1,6 +1,7 @@
 package org.talcrafts.udhari;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -53,7 +54,6 @@ public class AddCardActivity extends AppCompatActivity {
         //TODO numbers are getting
 
 
-
         if (date.length() == 0) {
             mTextInputQuestion.setError(getString(R.string.error_input_question));
         }
@@ -74,9 +74,13 @@ public class AddCardActivity extends AppCompatActivity {
 //            } else {
             finish();
 //            }
+            Intent addCard = new Intent(AddCardActivity.this, QrCodeActivity.class);
+            addCard.putExtra("data", "Item Details:" + date + ":Amount:" + amount);
+            startActivity(addCard);
         } else {
             Snackbar.make(findViewById(R.id.date), getString(R.string.complete_form)
                     , Snackbar.LENGTH_SHORT).show();
         }
+
     }
 }

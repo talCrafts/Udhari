@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/form_question"
-            android:singleLine="true"/>
+            android:maxLines="1"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/form_answer"
-            android:singleLine="true" />
+            android:maxLines="1"/>
 
     </android.support.design.widget.TextInputLayout>
 

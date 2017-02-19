@@ -6,8 +6,8 @@
     <string name="add">Add</string>
     <string name="form_question">Date</string>
     <string name="form_answer">Amount</string>
-    <string name="error_input_question">You need to specify a question</string>
-    <string name="error_input_answer">You need to specify an answer</string>
+    <string name="error_input_question">You need to specify item detail</string>
+    <string name="error_input_answer">You need to specify amount</string>
     <string name="complete_form">You need to complete the form</string>
     <string name="error_adding_card">Error adding card</string>
     <string name="equals">=</string>

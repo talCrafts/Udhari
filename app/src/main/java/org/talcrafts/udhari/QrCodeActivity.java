@@ -2,6 +2,7 @@ package org.talcrafts.udhari;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,6 +24,9 @@ import com.google.zxing.Result;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+import org.talcrafts.udhari.data.AddTxService;
+import org.talcrafts.udhari.data.DatabaseContract;
+
 import java.util.EnumMap;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -36,6 +40,9 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
     private ImageView mImageView;
     private int CAMERA_PERMISSION_CODE = 23;
     ViewGroup contentFrame;
+    private static final String EXTRA_DATA = "data";
+    private static final String DATE = "date";
+    private static final String AMOUNT = "amount";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +57,31 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
             requestStoragePermission();
         }
         mImageView = (ImageView) findViewById(R.id.qr_code_id);
-        mImageView.setImageBitmap(endcode("Udhari"));
+        String data;
+        if (getIntent().getExtras() != null) {
+            data = getIntent().getExtras().getString(EXTRA_DATA);
+        } else {
+            data = "Udhari";
+        }
+        mImageView.setImageBitmap(endcode(data));
     }
 
     @Override
     public void handleResult(Result result) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setMessage(result.getText());
-        AlertDialog alert1 = builder.create();
-        alert1.show();
+        if (result.getText().split(":").length > 2) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DatabaseContract.TableTransactions.COL_DATE, getAmount(result.getText(), DATE)); // bug
+            contentValues.put(DatabaseContract.TableTransactions.COL_AMOUNT, getAmount(result.getText(), AMOUNT)); // bug
 
+            AddTxService.insertNewCard(getApplicationContext(), contentValues);
+            Intent goBackToMain = new Intent(this, MainActivity.class);
+            startActivity(goBackToMain);
+        } else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Scan Result");
+            builder.setMessage("Not a valid value");
+            builder.show();
+        }
     }
 
     private Bitmap endcode(String input) {
@@ -135,4 +156,17 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
         }
     }
 
+    private String getAmount(String data, String column) {
+        String[] strings = data.split(":");
+        String value = "";
+        switch (column) {
+            case DATE:
+                value = strings[1];
+                break;
+            case AMOUNT:
+                value = strings[3];
+                break;
+        }
+        return value;
+    }
 }
