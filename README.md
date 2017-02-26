@@ -9,8 +9,11 @@ Similar to gmail with all transactions being displayed in simple list. Latest tr
 
 ![Main Screen Mockup](https://drive.google.com/open?id=0ByIuJAQs0IJHXzdhbUdGaDl3Wnc)
 
-1. Title should describe Money Transactions 
+1. Title should describe Money Transactions
 2. Line Item
 	3. Amount will be title of each item.
 	4. Simple sentence should be formed explaining transactions.
 	5. Icon can represent Debit or Credit
+
+### Steps to Run ###
+If you have installed previous version of Udhari, then go to `settings -> apps -> storage -> Clear data`
