@@ -27,7 +27,8 @@ public class TxDBHelper extends SQLiteOpenHelper {
             DatabaseContract.TableTransactions._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             DatabaseContract.TableTransactions.COL_DATE + " TEXT NOT NULL," +
             DatabaseContract.TableTransactions.COL_PARTY + " TEXT NOT NULL," +
-            DatabaseContract.TableTransactions.COL_SUMMARY + " TEXT," + // TODO change to Date
+            DatabaseContract.TableTransactions.COL_SUMMARY + " TEXT," +
+            DatabaseContract.TableTransactions.COL_TYPE + " TEXT," + // TODO change to Date
             DatabaseContract.TableTransactions.COL_AMOUNT + " TEXT NOT NULL )"; // TODO change to BigInt
 
     private Resources mResources;

@@ -3,6 +3,7 @@ package org.talcrafts.udhari;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,18 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
         holder.mDate.setText(transaction.getAmountStr());
         holder.mParty.setText(transaction.getPartyString());
         holder.mSummary.setText(transaction.getSummaryString());
+        String string = transaction.getTypeString();
+
+        if (string.equalsIgnoreCase(TxnType.LENT.toString())) {
+            holder.mDate.setTextColor(Color.parseColor("Green"));
+            holder.mType.setTextColor(Color.parseColor("Green"));
+            holder.mType.setText("You lent");
+        } else {
+            holder.mDate.setTextColor(Color.parseColor("Red"));
+            holder.mType.setTextColor(Color.parseColor("Red"));
+            holder.mType.setText("You Borrowed");
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +85,7 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
         public final TextView mDate;
         public final TextView mParty;
         public final TextView mSummary;
+        public final TextView mType;
 
         public CardViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +93,7 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
             mDate = (TextView) itemView.findViewById(R.id.text_date);
             mParty = (TextView) itemView.findViewById(R.id.party_id);
             mSummary = (TextView) itemView.findViewById(R.id.summary);
+            mType = (TextView) itemView.findViewById(R.id.type_of_transaction);
         }
     }
 

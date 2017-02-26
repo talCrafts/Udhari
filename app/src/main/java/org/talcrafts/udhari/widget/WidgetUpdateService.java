@@ -40,7 +40,8 @@ public class WidgetUpdateService extends IntentService {
 
             Cursor cursor = getContentResolver().query(DatabaseContract.CONTENT_URI,
                     new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT,
-                                DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY},
+                                DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY,
+                            DatabaseContract.TableTransactions.COL_TYPE},
                     null,
                     null,
                     null);

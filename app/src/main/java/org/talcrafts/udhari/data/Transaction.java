@@ -19,15 +19,17 @@ public class Transaction implements Parcelable {
     public final String currency = "RS:";
     public final String party;
     public final String summary;
+    public final String txnType;
 
     /**
      * Create a new Transaction from discrete values
      */
-    public Transaction(String date, String amount, String party, String summary) {
+    public Transaction(String date, String amount, String party, String summary, String txnType) {
         this.date = date;
         this.amount = amount;
         this.party = party;
         this.summary = summary;
+        this.txnType = txnType;
     }
 
     /**
@@ -38,10 +40,12 @@ public class Transaction implements Parcelable {
         int amountColumnNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_AMOUNT);
         int partyColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_PARTY);
         int summaryColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_SUMMARY);
+        int typeColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_TYPE);
         this.date = cursor.getString(dateColumnNo);
         this.amount = cursor.getString(amountColumnNo);
         this.party = cursor.getString(partyColNo);
         this.summary = cursor.getString(summaryColNo);
+        this.txnType = cursor.getString(typeColNo);
     }
 
     /**
@@ -52,6 +56,7 @@ public class Transaction implements Parcelable {
         this.amount = in.readString();
         this.party = in.readString();
         this.summary = in.readString();
+        this.txnType = in.readString();
     }
 
     @Override
@@ -65,6 +70,7 @@ public class Transaction implements Parcelable {
         dest.writeString(amount);
         dest.writeString(party);
         dest.writeString(summary);
+        dest.writeString(txnType);
     }
 
     public static final Creator<Transaction> CREATOR = new Creator<Transaction>() {
@@ -97,5 +103,9 @@ public class Transaction implements Parcelable {
 
     public String getAmountStr() {
         return this.amount;
+    }
+
+    public String getTypeString() {
+        return this.txnType;
     }
 }

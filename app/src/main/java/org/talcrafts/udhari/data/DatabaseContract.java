@@ -17,6 +17,7 @@ public class DatabaseContract {
         public static final String COL_AMOUNT = "amount";
         public static final String COL_PARTY= "party";
         public static final String COL_SUMMARY = "summary";
+        public static final String COL_TYPE = "type";
     }
 
     // Unique authority string for the content provider

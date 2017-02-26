@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         RecyclerView cardRecyclerView = (RecyclerView) findViewById(R.id.card_recycler_view);
         cardRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager cardLayoutManager = new LinearLayoutManager(this);
@@ -83,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return new CursorLoader(MainActivity.this, DatabaseContract.CONTENT_URI,
                 new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT,
-                        DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY}, null, null, null);
+                        DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY,
+                        DatabaseContract.TableTransactions.COL_TYPE}, null, null, null);
     }
 
     @Override

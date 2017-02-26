@@ -3,6 +3,7 @@ package org.talcrafts.udhari;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -12,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.talcrafts.udhari.data.AddTxService;
@@ -25,6 +27,7 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
     private TextInputEditText mTxnAmount;
     private TextInputEditText mParty;
     private TextInputEditText mSummary;
+    private Spinner mType;
     private long mDueDate = Long.MAX_VALUE;
 
     @Override
@@ -37,6 +40,7 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
         mTxnAmount = (TextInputEditText) findViewById(R.id.text_input_answer);
         mParty = (TextInputEditText) findViewById(R.id.party);
         mSummary = (TextInputEditText) findViewById(R.id.summary);
+        mType = (Spinner) findViewById(R.id.dropdown_type);
         mTxnAmount.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -75,12 +79,14 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
 
         String party = mParty.getText().toString().trim();
         String summary = mSummary.getText().toString().trim();
+        String type = mType.getSelectedItem().toString();
         if (date.length() > 0 && amount.length() > 0) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(DatabaseContract.TableTransactions.COL_DATE, date); // bug
             contentValues.put(DatabaseContract.TableTransactions.COL_AMOUNT, amount); // bug
             contentValues.put(DatabaseContract.TableTransactions.COL_PARTY, party);
             contentValues.put(DatabaseContract.TableTransactions.COL_SUMMARY, summary);
+            contentValues.put(DatabaseContract.TableTransactions.COL_TYPE, type);
 
             AddTxService.insertNewCard(getApplicationContext(), contentValues);
             //Uri uri = getContentResolver().insert(DatabaseContract.CONTENT_URI, contentValues);
