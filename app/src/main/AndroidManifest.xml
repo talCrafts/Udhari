@@ -22,7 +22,7 @@
             android:name=".SettingsActivity"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".AddCardActivity"
+            android:name=".AddTxnActivity"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateVisible"/>
         <activity

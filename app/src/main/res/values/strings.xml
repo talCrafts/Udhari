@@ -19,4 +19,6 @@
     <string name="pref_key_reminders">reminders</string>
     <string name="permission_camera_rationale">Camera Permission is needed for scanning bar code
     </string>
+    <string name="date_empty">Not Set</string>
+    <string name="txn_date">Date</string>
 </resources>

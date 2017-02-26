@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addCard = new Intent(MainActivity.this, AddCardActivity.class);
+                Intent addCard = new Intent(MainActivity.this, AddTxnActivity.class);
                 MainActivity.this.startActivity(addCard);
             }
         });
@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             return null;
         }
         return new CursorLoader(MainActivity.this, DatabaseContract.CONTENT_URI,
-                new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT}, null, null, null);
+                new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT,
+                        DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY}, null, null, null);
     }
 
     @Override

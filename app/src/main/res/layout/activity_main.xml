@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/tx_list_content"/>
+        tools:listitem="@layout/tx_list_content"
+        android:dividerHeight="4dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddButton"
@@ -23,12 +24,12 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabSyncButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_popup_sync"
         app:layout_anchor="@id/fabAddButton"
-        app:layout_anchorGravity="bottom" />
+        app:layout_anchorGravity="top" />
 
 </FrameLayout>

@@ -1,26 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:divider="?android:listDivider"
-    android:orientation="vertical"
-    android:gravity="top"
-    android:showDividers="beginning">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="?android:listPreferredItemHeight"
+                android:background="?android:attr/selectableItemBackground"
+                android:dividerHeight="4px"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin" tools:ignore="PxUsage">
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_weight="30"/>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+        <ImageView
+            android:id="@+id/summary_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/party_id"
+            android:contentDescription=""
+            android:padding="@dimen/checkbox_padding" android:src="@drawable/ic_add_black_24dp"
+            tools:ignore="ContentDescription"/>
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_weight="70"
-        android:gravity="center"
-        android:textColor="@android:color/primary_text_light"
-        android:textAlignment="gravity"
-        android:textSize="20sp"/>
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/party_id"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="20sp" tools:text="Amount"/>
+        <TextView
+            android:id="@+id/party_id"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_above="@+id/summary"
+            android:layout_toEndOf="@+id/summary_icon"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="20sp"
+            tools:text="Party Id"/>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/dividerColor"/>
+        <TextView android:id="@+id/summary"
+                  android:layout_width="wrap_content"
+                  android:layout_height="32dp"
+                  android:layout_above="@+id/divider"
+                  android:layout_toEndOf="@+id/summary_icon" tools:text="summary"/>
+        <TextView
+            android:id="@+id/type_of_transaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/party_id"
+            android:layout_alignBottom="@+id/party_id"
+            android:layout_alignParentEnd="true"
+            android:textAppearance="?android:textAppearanceSmall"
+            tools:text="you lent"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

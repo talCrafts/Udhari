@@ -39,7 +39,8 @@ public class WidgetUpdateService extends IntentService {
             int totalCards = 0;
 
             Cursor cursor = getContentResolver().query(DatabaseContract.CONTENT_URI,
-                    new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT},
+                    new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT,
+                                DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY},
                     null,
                     null,
                     null);
@@ -67,10 +68,10 @@ public class WidgetUpdateService extends IntentService {
             }
 
             Context context = getBaseContext();
-            Intent newIntent=new Intent(context, AnswerActivity.class);
+            Intent newIntent = new Intent(context, AnswerActivity.class);
             newIntent.putExtra(AnswerActivity.SELECTED_TRANSACTION, randomTransaction);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context,0, newIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            view.setOnClickPendingIntent(R.id.appwidget_text,pendingIntent);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, newIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            view.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent);
 
             //Update the widget
             appWidgetManager.updateAppWidget(id, view);

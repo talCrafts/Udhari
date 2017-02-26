@@ -40,7 +40,9 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
     @Override
     public void onBindViewHolder(final CardViewHolder holder, final int position) {
         final Transaction transaction = getItem(position);
-        holder.textView.setText(transaction.getDisplayString());
+        holder.mDate.setText(transaction.getAmountStr());
+        holder.mParty.setText(transaction.getPartyString());
+        holder.mSummary.setText(transaction.getSummaryString());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,12 +69,16 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
     public class CardViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public Transaction item;
-        public final TextView textView;
+        public final TextView mDate;
+        public final TextView mParty;
+        public final TextView mSummary;
 
         public CardViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            textView = (TextView) itemView.findViewById(R.id.date);
+            mDate = (TextView) itemView.findViewById(R.id.text_date);
+            mParty = (TextView) itemView.findViewById(R.id.party_id);
+            mSummary = (TextView) itemView.findViewById(R.id.summary);
         }
     }
 

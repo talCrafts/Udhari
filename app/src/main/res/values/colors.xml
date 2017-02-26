@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">@android:color/holo_blue_light</color>
     <color name="textColor">@android:color/white</color>
+    <color name="dividerColor">@android:color/holo_blue_bright</color>
 </resources>

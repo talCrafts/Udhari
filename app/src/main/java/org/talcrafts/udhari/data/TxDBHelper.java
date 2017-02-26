@@ -25,7 +25,9 @@ public class TxDBHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_TABLE_TRANSACTIONS = "CREATE TABLE " +
             DatabaseContract.TABLE_TRANSACTIONS + " (" +
             DatabaseContract.TableTransactions._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            DatabaseContract.TableTransactions.COL_DATE + " TEXT NOT NULL," +   // TODO change to Date
+            DatabaseContract.TableTransactions.COL_DATE + " TEXT NOT NULL," +
+            DatabaseContract.TableTransactions.COL_PARTY + " TEXT NOT NULL," +
+            DatabaseContract.TableTransactions.COL_SUMMARY + " TEXT," + // TODO change to Date
             DatabaseContract.TableTransactions.COL_AMOUNT + " TEXT NOT NULL )"; // TODO change to BigInt
 
     private Resources mResources;
@@ -38,13 +40,13 @@ public class TxDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE_TRANSACTIONS);
-        try {
-            readTransactionsFromResources(db);
+        /*try {
+            //readTransactionsFromResources(db);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
