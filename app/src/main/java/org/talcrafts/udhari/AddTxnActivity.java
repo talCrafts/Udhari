@@ -37,7 +37,7 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
 
         mTxnDate = (TextInputEditText) findViewById(R.id.text_date);
         mTxnDate.setOnClickListener(this);
-        mTxnAmount = (TextInputEditText) findViewById(R.id.text_input_answer);
+        mTxnAmount = (TextInputEditText) findViewById(R.id.amount);
         mParty = (TextInputEditText) findViewById(R.id.party);
         mSummary = (TextInputEditText) findViewById(R.id.summary);
         mType = (Spinner) findViewById(R.id.dropdown_type);

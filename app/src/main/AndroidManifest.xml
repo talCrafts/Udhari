@@ -26,7 +26,7 @@
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="stateVisible"/>
         <activity
-            android:name=".AnswerActivity"
+            android:name=".EditTxnActivity"
             android:parentActivityName=".MainActivity"/>
 
         <service

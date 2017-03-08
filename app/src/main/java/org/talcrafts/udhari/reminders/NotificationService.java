@@ -25,7 +25,6 @@ public class NotificationService extends IntentService {
         NotificationCompat.Builder builder= new NotificationCompat.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.time_to_practice));
         builder.setContentText(getString(R.string.it_is_time_to_practice));
-        //TODO set it correct
         builder.setSmallIcon(R.drawable.sym_action_email);
         mNotificationManager.notify(mNotificationId,builder.build());
     }

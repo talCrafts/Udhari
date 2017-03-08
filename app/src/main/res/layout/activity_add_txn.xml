@@ -10,58 +10,59 @@
         android:orientation="vertical"
         android:padding="40dp">
 
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="16dp"
+            android:hint="Amount"
+            android:maxLines="1"/>
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/party"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/summary" android:layout_marginTop="24dp"
-            android:hint="Party" tools:ignore="HardcodedText">
+            android:layout_marginTop="24dp"
+            android:hint="Party" tools:ignore="HardcodedText"
+            android:layout_below="@+id/amount"
+            />
 
-        </android.support.design.widget.TextInputEditText>
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/text_date" android:layout_marginTop="30dp"
-            android:hint="Summary">
-
-        </android.support.design.widget.TextInputEditText>
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/text_input_answer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/party"
-            android:layout_marginTop="16dp" android:hint="@string/form_answer"
-            android:maxLines="1"/>
         <android.support.design.widget.TextInputEditText
             android:id="@+id/text_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" android:hint="Date"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/party"
+            android:hint="Date"
             tools:ignore="HardcodedText"/>
         <Spinner android:id="@+id/dropdown_type"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_alignParentStart="true"
-                 android:layout_below="@+id/text_input_answer"
+                 android:layout_below="@+id/text_date"
                  android:layout_marginTop="16dp"
                  android:entries="@array/dropdown_list">
         </Spinner>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="30dp"
+            android:hint="Summary"
+            android:layout_below="@+id/dropdown_type" />
         <Button
             android:id="@+id/button_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dropdown_type"
+            android:layout_below="@+id/summary"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="@string/add"
+            android:hint="@string/add"
             android:textColor="@color/textColor"/>
-
     </RelativeLayout>
 </ScrollView>

@@ -36,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity implements
                 jobScheduler.cancel(JOB_ID);
                 Log.d(TAG, "cancelling scheduled job");
             } else {
-                long interval = AlarmManager.INTERVAL_DAY;
+                long interval = AlarmManager.INTERVAL_HOUR;
                 JobInfo job = new JobInfo.Builder(JOB_ID,
                         new ComponentName(getPackageName(),
                                 ScheduledJobService.class.getName()))

@@ -27,8 +27,7 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
             return null;
         }
         mCursor.moveToPosition(position);
-        final Transaction transaction = new Transaction(mCursor);
-        return transaction;
+        return new Transaction(mCursor);
     }
 
     @Override
@@ -60,8 +59,8 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent launchAnswer = new Intent(context, AnswerActivity.class);
-                launchAnswer.putExtra(AnswerActivity.SELECTED_TRANSACTION, transaction);
+                Intent launchAnswer = new Intent(context, EditTxnActivity.class);
+                launchAnswer.putExtra(EditTxnActivity.SELECTED_TRANSACTION, transaction);
                 context.startActivity(launchAnswer);
             }
         });
