@@ -57,7 +57,7 @@ public class TxProvider extends ContentProvider {
             case TRANSACTIONS_WITH_ID:
                 String id = uri.getPathSegments().get(1);
                 String oneSelection = DatabaseContract.TableTransactions.COL_ID + "=?";
-                String [] oneSelectionArgs = new String[]{id};
+                String[] oneSelectionArgs = new String[]{id};
                 cursor = db.query(DatabaseContract.TABLE_TRANSACTIONS, projection, oneSelection, oneSelectionArgs, null, null, sortOrder);
                 break;
             default:
@@ -76,7 +76,7 @@ public class TxProvider extends ContentProvider {
         int match = sUriMatcher.match(uri);
         switch (match) {
             case TRANSACTIONS: // Since insert and query all has same url
-                 long transactionId = db.insert(DatabaseContract.TABLE_TRANSACTIONS, null, values);
+                long transactionId = db.insert(DatabaseContract.TABLE_TRANSACTIONS, null, values);
                 if (transactionId > 0) {
                     returnUri = ContentUris.withAppendedId(DatabaseContract.CONTENT_URI, transactionId);
                     getContext().getContentResolver().notifyChange(uri, null);
@@ -97,6 +97,7 @@ public class TxProvider extends ContentProvider {
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        throw new UnsupportedOperationException("This provider does not support updates");
+        final SQLiteDatabase db = mCardsDBHelper.getWritableDatabase();
+        return db.update(DatabaseContract.TABLE_TRANSACTIONS, values, selection, selectionArgs);
     }
 }

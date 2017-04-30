@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return new CursorLoader(MainActivity.this, DatabaseContract.CONTENT_URI,
                 new String[]{DatabaseContract.TableTransactions.COL_DATE, DatabaseContract.TableTransactions.COL_AMOUNT,
                         DatabaseContract.TableTransactions.COL_PARTY, DatabaseContract.TableTransactions.COL_SUMMARY,
-                        DatabaseContract.TableTransactions.COL_TYPE}, null, null, null);
+                        DatabaseContract.TableTransactions.COL_TYPE,DatabaseContract.TableTransactions.COL_ID}, null, null, null);
     }
 
     @Override

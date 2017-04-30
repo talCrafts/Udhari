@@ -3,7 +3,7 @@
     <string name="app_name">Udhari</string>
     <string name="time_to_practice">Time to practice</string>
     <string name="it_is_time_to_practice">It is time to practice</string>
-    <string name="add">Add</string>
+    <string name="save">Save</string>
     <string name="form_question">Date</string>
     <string name="form_answer">Amount</string>
     <string name="error_input_question">You need to specify item detail</string>

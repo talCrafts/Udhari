@@ -19,8 +19,8 @@ import java.io.InputStreamReader;
 public class TxDBHelper extends SQLiteOpenHelper {
     private static final String TAG = TxDBHelper.class.getSimpleName();
 
-    public static final String DB_NAME = "udhari.db";
-    public static final int DB_VERSION = 1;
+    public static final String DB_NAME = "udhari1.db";
+    public static final int DB_VERSION = 2;
 
     private static final String SQL_CREATE_TABLE_TRANSACTIONS = "CREATE TABLE " +
             DatabaseContract.TABLE_TRANSACTIONS + " (" +
@@ -60,12 +60,10 @@ public class TxDBHelper extends SQLiteOpenHelper {
         StringBuilder builder = new StringBuilder();
         InputStream in = mResources.openRawResource(R.raw.transactions);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
         String line;
         while ((line = reader.readLine()) != null) {
             builder.append(line);
         }
-
         //Parse resource into key/values
         JSONObject root = new JSONObject(builder.toString());
         JSONArray transactions = root.getJSONArray(Transaction.KEY_TRANSACTIONS);

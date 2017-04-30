@@ -20,16 +20,18 @@ public class Transaction implements Parcelable {
     public final String party;
     public final String summary;
     public final String txnType;
+    public final String id;
 
     /**
      * Create a new Transaction from discrete values
      */
-    public Transaction(String date, String amount, String party, String summary, String txnType) {
+    public Transaction(String date, String amount, String party, String summary, String txnType, String id) {
         this.date = date;
         this.amount = amount;
         this.party = party;
         this.summary = summary;
         this.txnType = txnType;
+        this.id = id;
     }
 
     /**
@@ -41,11 +43,13 @@ public class Transaction implements Parcelable {
         int partyColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_PARTY);
         int summaryColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_SUMMARY);
         int typeColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_TYPE);
+        int idColNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_ID);
         this.date = cursor.getString(dateColumnNo);
         this.amount = cursor.getString(amountColumnNo);
         this.party = cursor.getString(partyColNo);
         this.summary = cursor.getString(summaryColNo);
         this.txnType = cursor.getString(typeColNo);
+        this.id = cursor.getString(idColNo);
     }
 
     /**
@@ -57,6 +61,7 @@ public class Transaction implements Parcelable {
         this.party = in.readString();
         this.summary = in.readString();
         this.txnType = in.readString();
+        this.id = in.readString();
     }
 
     @Override
@@ -71,6 +76,7 @@ public class Transaction implements Parcelable {
         dest.writeString(party);
         dest.writeString(summary);
         dest.writeString(txnType);
+        dest.writeString(id);
     }
 
     public static final Creator<Transaction> CREATOR = new Creator<Transaction>() {
@@ -107,5 +113,9 @@ public class Transaction implements Parcelable {
 
     public String getTypeString() {
         return this.txnType;
+    }
+
+    public String getIDString() {
+        return this.id;
     }
 }

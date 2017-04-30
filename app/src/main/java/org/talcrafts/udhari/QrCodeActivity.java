@@ -1,9 +1,7 @@
 package org.talcrafts.udhari;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -15,7 +13,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -73,7 +70,7 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
             contentValues.put(DatabaseContract.TableTransactions.COL_DATE, getAmount(result.getText(), DATE)); // bug
             contentValues.put(DatabaseContract.TableTransactions.COL_AMOUNT, getAmount(result.getText(), AMOUNT)); // bug
 
-            AddTxService.insertNewCard(getApplicationContext(), contentValues);
+            AddTxService.insertNewTx(getApplicationContext(), contentValues);
             Intent goBackToMain = new Intent(this, MainActivity.class);
             startActivity(goBackToMain);
         } else {
