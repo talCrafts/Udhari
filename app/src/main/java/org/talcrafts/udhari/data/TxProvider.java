@@ -98,6 +98,7 @@ public class TxProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         final SQLiteDatabase db = mCardsDBHelper.getWritableDatabase();
+        getContext().getContentResolver().notifyChange(uri, null);
         return db.update(DatabaseContract.TABLE_TRANSACTIONS, values, selection, selectionArgs);
     }
 }

@@ -41,6 +41,8 @@ public class QrCodeActivity extends AppCompatActivity implements ZXingScannerVie
     private static final String DATE = "date";
     private static final String AMOUNT = "amount";
 
+    public static final String SELECTED_NEIGHBOUR = "SELECTED_NEIGHBOUR";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

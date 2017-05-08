@@ -10,14 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.talcrafts.udhari.data.TxRecyclerAdapter;
+import org.talcrafts.udhari.data.CommonRecyclerAdapter;
 import org.talcrafts.udhari.data.Transaction;
 
 /**
  * Created by ashwaghm on 20-Jan-17.
  */
 
-public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterImpl.CardViewHolder> {
+public class TxRecyclerApapterImpl extends CommonRecyclerAdapter<Transaction, TxRecyclerApapterImpl.CardViewHolder> {
 
     private Cursor mCursor;
 
@@ -59,8 +59,8 @@ public class TxRecyclerApapterImpl extends TxRecyclerAdapter<TxRecyclerApapterIm
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent launchAnswer = new Intent(context, EditTxnActivity.class);
-                launchAnswer.putExtra(EditTxnActivity.SELECTED_TRANSACTION, transaction);
+                Intent launchAnswer = new Intent(context, AddTxnActivity.class);
+                launchAnswer.putExtra(AddTxnActivity.SELECTED_TRANSACTION, transaction);
                 context.startActivity(launchAnswer);
             }
         });

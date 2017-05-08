@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 /**
  * Base class for the RecyclerView adapter to display flashcards.
  */
-public abstract class TxRecyclerAdapter<VH extends RecyclerView.ViewHolder>
+public abstract class CommonRecyclerAdapter<T,VH extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<VH> {
 
     /**
@@ -15,6 +15,6 @@ public abstract class TxRecyclerAdapter<VH extends RecyclerView.ViewHolder>
      * @return A new {@link Transaction} filled with this position's attributes.
      * @throws IllegalArgumentException if position is out of the adapter's bounds.
      */
-    public abstract Transaction getItem(int position);
+    public abstract T getItem(int position);
 
 }

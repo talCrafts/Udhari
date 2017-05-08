@@ -1,0 +1,2 @@
+Complete WIFI Neighbours and show in 3rd screen.
+Post selecting one Neighbour share QR code screen.

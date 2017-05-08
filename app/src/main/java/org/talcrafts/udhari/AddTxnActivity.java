@@ -111,9 +111,9 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
 
             //Uri uri = getContentResolver().insert(DatabaseContract.CONTENT_URI, contentValues);
             finish();
-            Intent addCard = new Intent(AddTxnActivity.this, QrCodeActivity.class);
-            addCard.putExtra("data", "Item Details:" + date + ":Amount:" + amount);
-            startActivity(addCard);
+            Intent addTx = new Intent(AddTxnActivity.this, NeighbourActivity.class);
+            addTx.putExtra("data", "Item Details:" + date + ":Amount:" + amount);
+            startActivity(addTx);
         } else {
             Snackbar.make(findViewById(R.id.party_id), getString(R.string.complete_form)
                     , Snackbar.LENGTH_SHORT).show();

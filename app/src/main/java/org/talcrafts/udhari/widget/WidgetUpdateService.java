@@ -10,7 +10,7 @@ import android.database.Cursor;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import org.talcrafts.udhari.EditTxnActivity;
+import org.talcrafts.udhari.AddTxnActivity;
 import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.data.Transaction;
@@ -69,8 +69,8 @@ public class WidgetUpdateService extends IntentService {
             }
 
             Context context = getBaseContext();
-            Intent newIntent = new Intent(context, EditTxnActivity.class);
-            newIntent.putExtra(EditTxnActivity.SELECTED_TRANSACTION, randomTransaction);
+            Intent newIntent = new Intent(context, AddTxnActivity.class);
+            newIntent.putExtra(AddTxnActivity.SELECTED_TRANSACTION, randomTransaction);
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, newIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             view.setOnClickPendingIntent(R.id.appwidget_text, pendingIntent);
 

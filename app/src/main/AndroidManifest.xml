@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="org.talcrafts.udhari">
+    package="org.talcrafts.udhari">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -13,54 +15,51 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddTxnActivity"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="stateVisible"/>
-        <activity
-            android:name=".EditTxnActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:windowSoftInputMode="stateVisible" />
 
         <service
             android:name=".data.AddTxService"
-            android:exported="false"/>
+            android:exported="false" />
         <service
             android:name=".reminders.NotificationService"
-            android:exported="false"/>
+            android:exported="false" />
         <service
             android:name=".reminders.ScheduledJobService"
             android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <provider
             android:name=".data.TxProvider"
             android:authorities="org.talcrafts.udhari"
-            android:exported="true"/>
+            android:exported="true" />
 
         <service
             android:name=".widget.WidgetUpdateService"
-            android:exported="false"/>
+            android:exported="false" />
 
         <receiver android:name=".widget.UdhariWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget"/>
+                android:resource="@xml/widget" />
         </receiver>
 
-        <activity android:name=".QrCodeActivity">
-        </activity>
+        <activity android:name=".QrCodeActivity"></activity>
+        <activity android:name=".NeighbourActivity"></activity>
     </application>
 
 </manifest>
