@@ -1,5 +1,7 @@
 package org.talcrafts.udhari.neighbours.model;
 
+import android.bluetooth.le.AdvertiseData;
+
 /**
  * Created by ashis on 5/5/2017.
  */
@@ -11,6 +13,7 @@ public class BTEndPoint extends EndPoint {
             this.content = content;
             this.details = details;
             this.type=this.getClass().getSimpleName();
+            AdvertiseData data;
         }
 
         @Override

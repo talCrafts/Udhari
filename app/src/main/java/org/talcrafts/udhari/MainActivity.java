@@ -1,7 +1,13 @@
 package org.talcrafts.udhari;
 
+import android.app.AlertDialog;
 import android.app.LoaderManager;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeAdvertiser;
+import android.content.Context;
 import android.content.CursorLoader;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
@@ -30,6 +36,23 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // BT LE
+        BluetoothManager manager = (BluetoothManager) getApplicationContext().getSystemService(
+                Context.BLUETOOTH_SERVICE);
+        BluetoothAdapter btAdapter = manager.getAdapter();
+        if (btAdapter == null) {
+            showFinishingAlertDialog("Bluetooth Error", "Bluetooth not detected on device");
+        } else if (!btAdapter.isEnabled()) {
+            showFinishingAlertDialog("BL is Disabled", "Please enable Bluetooth and restart App");
+        } else if (!btAdapter.isMultipleAdvertisementSupported()) {
+            showFinishingAlertDialog("Not supported", "BLE advertising not supported on this device");
+        } else {
+            BluetoothLeAdvertiser adv = btAdapter.getBluetoothLeAdvertiser();
+            //TODO callback when someone scans
+        }
+        // BT LE
+
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         NotificationReceiver receiver = new NotificationReceiver(wifiManager);
         WIFIContent.getInstance(null).startScan();
@@ -63,6 +86,24 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
         getLoaderManager().initLoader(LOADER_ID, null, this);
+    }
+
+    // Pops an AlertDialog that quits the app on OK.
+    private void showFinishingAlertDialog(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    private DialogInterface dialogInterface;
+                    private int i;
+
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        this.dialogInterface = dialogInterface;
+                        this.i = i;
+                        finish();
+                    }
+                }).show();
     }
 
     @Override
