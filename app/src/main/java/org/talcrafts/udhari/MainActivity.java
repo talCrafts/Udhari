@@ -27,6 +27,8 @@ import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.neighbours.model.NotificationReceiver;
 import org.talcrafts.udhari.neighbours.model.WIFIContent;
 
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 

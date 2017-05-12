@@ -21,14 +21,18 @@ import org.talcrafts.udhari.data.Transaction;
 
 import java.util.Calendar;
 
-public class AddTxnActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
-    protected TextInputEditText mTxnDate;
-    protected TextInputEditText mTxnAmount;
-    protected TextInputEditText mParty;
-    protected TextInputEditText mSummary;
-    protected Spinner mType;
-    private long mDueDate = Long.MAX_VALUE;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
+public class AddTxnActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
+
+    @Bin
+    d(R.id.text_date) TextInputEditText mTxnDate;
+    @Bind(R.id.amount) TextInputEditText mTxnAmount;
+    @Bind(R.id.party) TextInputEditText mParty;
+    @Bind(R.id.summary) TextInputEditText mSummary;
+    @Bind(R.id.dropdown_type) Spinner mType;
+    private long mDueDate = Long.MAX_VALUE;
     protected Transaction tx;
 
     public static final String SELECTED_TRANSACTION = "SELECTED_TRANSACTION";
@@ -36,6 +40,7 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         setContentView(R.layout.activity_add_txn);
         shiftData();
         mTxnAmount.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -58,12 +63,7 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
     }
 
     protected void shiftData() {
-        mTxnDate = (TextInputEditText) findViewById(R.id.text_date);
         mTxnDate.setOnClickListener(this);
-        mTxnAmount = (TextInputEditText) findViewById(R.id.amount);
-        mParty = (TextInputEditText) findViewById(R.id.party);
-        mSummary = (TextInputEditText) findViewById(R.id.summary);
-        mType = (Spinner) findViewById(R.id.dropdown_type);
         tx = getIntent().getParcelableExtra(SELECTED_TRANSACTION);
         if (null != tx) {
             mTxnDate.setText(tx.date);
