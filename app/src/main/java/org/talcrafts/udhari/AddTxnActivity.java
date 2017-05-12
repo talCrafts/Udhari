@@ -26,8 +26,7 @@ import butterknife.ButterKnife;
 
 public class AddTxnActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
-    @Bin
-    d(R.id.text_date) TextInputEditText mTxnDate;
+    @Bind(R.id.text_date) TextInputEditText mTxnDate;
     @Bind(R.id.amount) TextInputEditText mTxnAmount;
     @Bind(R.id.party) TextInputEditText mParty;
     @Bind(R.id.summary) TextInputEditText mSummary;
@@ -40,8 +39,9 @@ public class AddTxnActivity extends AppCompatActivity implements DatePickerDialo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
+
         setContentView(R.layout.activity_add_txn);
+        ButterKnife.bind(this);
         shiftData();
         mTxnAmount.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
