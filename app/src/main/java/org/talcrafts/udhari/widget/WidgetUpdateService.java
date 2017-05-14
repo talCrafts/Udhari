@@ -10,7 +10,7 @@ import android.database.Cursor;
 import android.util.Log;
 import android.widget.RemoteViews;
 
-import org.talcrafts.udhari.AddTxnActivity;
+import org.talcrafts.udhari.tx.AddTxnActivity;
 import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.data.Transaction;

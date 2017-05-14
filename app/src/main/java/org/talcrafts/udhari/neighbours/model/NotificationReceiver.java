@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
 
+import org.talcrafts.udhari.wifi.WIFIContent;
+
 /**
  * Created by ashis on 5/8/2017.
  */

@@ -1,4 +1,4 @@
-package org.talcrafts.udhari;
+package org.talcrafts.udhari.tx;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.CommonRecyclerAdapter;
 import org.talcrafts.udhari.data.Transaction;
 

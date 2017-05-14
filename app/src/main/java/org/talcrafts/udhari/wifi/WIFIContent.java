@@ -1,15 +1,12 @@
-package org.talcrafts.udhari.neighbours.model;
+package org.talcrafts.udhari.wifi;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.talcrafts.udhari.neighbours.model.EndPoint;
+import org.talcrafts.udhari.neighbours.model.EndPointContent;
+
 import java.util.List;
-import java.util.Map;
 
 /**
  * Helper class for providing sample content for user interfaces created by

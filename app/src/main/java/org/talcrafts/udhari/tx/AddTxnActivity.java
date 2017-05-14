@@ -1,4 +1,4 @@
-package org.talcrafts.udhari;
+package org.talcrafts.udhari.tx;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
@@ -15,9 +15,11 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.AddTxService;
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.data.Transaction;
+import org.talcrafts.udhari.neighbours.NeighbourActivity;
 
 import java.util.Calendar;
 

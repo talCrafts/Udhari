@@ -1,16 +1,14 @@
-package org.talcrafts.udhari;
+package org.talcrafts.udhari.neighbours;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import org.talcrafts.udhari.neighbours.model.WIFIContent;
-import org.talcrafts.udhari.neighbours.model.WIFIEndPoint;
+import org.talcrafts.udhari.R;
+import org.talcrafts.udhari.wifi.WIFIContent;
+import org.talcrafts.udhari.wifi.WIFIEndPoint;
 
 public class NeighboursFragment extends Fragment {
     /**

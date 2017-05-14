@@ -25,9 +25,9 @@ import android.view.View;
 
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.neighbours.model.NotificationReceiver;
-import org.talcrafts.udhari.neighbours.model.WIFIContent;
-
-import butterknife.ButterKnife;
+import org.talcrafts.udhari.tx.AddTxnActivity;
+import org.talcrafts.udhari.tx.TxRecyclerApapterImpl;
+import org.talcrafts.udhari.wifi.WIFIContent;
 
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {

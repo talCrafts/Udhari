@@ -1,4 +1,4 @@
-package org.talcrafts.udhari;
+package org.talcrafts.udhari.neighbours;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.talcrafts.udhari.QrCodeActivity;
+import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.CommonRecyclerAdapter;
-import org.talcrafts.udhari.neighbours.model.WIFIContent;
-import org.talcrafts.udhari.neighbours.model.WIFIEndPoint;
+import org.talcrafts.udhari.wifi.WIFIContent;
+import org.talcrafts.udhari.wifi.WIFIEndPoint;
 
 /**
  * Created by ashwaghm on 20-Jan-17.

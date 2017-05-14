@@ -1,6 +1,8 @@
-package org.talcrafts.udhari.neighbours.model;
+package org.talcrafts.udhari.bt;
 
 import android.bluetooth.le.AdvertiseData;
+
+import org.talcrafts.udhari.neighbours.model.EndPoint;
 
 /**
  * Created by ashis on 5/5/2017.

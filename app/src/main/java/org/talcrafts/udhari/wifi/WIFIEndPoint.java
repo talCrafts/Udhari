@@ -1,6 +1,8 @@
-package org.talcrafts.udhari.neighbours.model;
+package org.talcrafts.udhari.wifi;
 
 import android.net.wifi.ScanResult;
+
+import org.talcrafts.udhari.neighbours.model.EndPoint;
 
 /**
  * Created by ashis on 5/5/2017.
