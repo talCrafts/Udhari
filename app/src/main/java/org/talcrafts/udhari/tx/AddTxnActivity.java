@@ -23,16 +23,16 @@ import org.talcrafts.udhari.neighbours.NeighbourActivity;
 
 import java.util.Calendar;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AddTxnActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
-    @Bind(R.id.text_date) TextInputEditText mTxnDate;
-    @Bind(R.id.amount) TextInputEditText mTxnAmount;
-    @Bind(R.id.party) TextInputEditText mParty;
-    @Bind(R.id.summary) TextInputEditText mSummary;
-    @Bind(R.id.dropdown_type) Spinner mType;
+    @BindView(R.id.text_date) TextInputEditText mTxnDate;
+    @BindView(R.id.amount) TextInputEditText mTxnAmount;
+    @BindView(R.id.party) TextInputEditText mParty;
+    @BindView(R.id.summary) TextInputEditText mSummary;
+    @BindView(R.id.dropdown_type) Spinner mType;
     private long mDueDate = Long.MAX_VALUE;
     protected Transaction tx;
 
