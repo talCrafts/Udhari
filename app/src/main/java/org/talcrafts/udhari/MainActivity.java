@@ -23,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.talcrafts.udhari.bt.BTCheck;
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.neighbours.model.NotificationReceiver;
 import org.talcrafts.udhari.tx.AddTxnActivity;
@@ -39,21 +40,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // BT LE
-        BluetoothManager manager = (BluetoothManager) getApplicationContext().getSystemService(
-                Context.BLUETOOTH_SERVICE);
-        BluetoothAdapter btAdapter = manager.getAdapter();
-        if (btAdapter == null) {
-            showFinishingAlertDialog("Bluetooth Error", "Bluetooth not detected on device");
-        } else if (!btAdapter.isEnabled()) {
-            showFinishingAlertDialog("BL is Disabled", "Please enable Bluetooth and restart App");
-        } else if (!btAdapter.isMultipleAdvertisementSupported()) {
-            showFinishingAlertDialog("Not supported", "BLE advertising not supported on this device");
-        } else {
-            BluetoothLeAdvertiser adv = btAdapter.getBluetoothLeAdvertiser();
-            //TODO callback when someone scans
-        }
-        // BT LE
+        BTCheck.Message finalMessage = BTCheck.check(getApplicationContext());
+        showFinishingAlertDialog(finalMessage.title,finalMessage.message);
 
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         NotificationReceiver receiver = new NotificationReceiver(wifiManager);
