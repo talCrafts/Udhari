@@ -23,7 +23,7 @@ public class Transaction implements Parcelable {
     public final String id;
 
     /**
-     * Create a new Transaction from discrete values
+     * Create a new TransactionEntity from discrete values
      */
     public Transaction(String date, String amount, String party, String summary, String txnType, String id) {
         this.date = date;
@@ -35,7 +35,7 @@ public class Transaction implements Parcelable {
     }
 
     /**
-     * Create a new Transaction from a database Cursor
+     * Create a new TransactionEntity from a database Cursor
      */
     public Transaction(Cursor cursor) {
         int dateColumnNo = cursor.getColumnIndex(DatabaseContract.TableTransactions.COL_DATE);
@@ -53,7 +53,7 @@ public class Transaction implements Parcelable {
     }
 
     /**
-     * Create a new Transaction from a data Parcel
+     * Create a new TransactionEntity from a data Parcel
      */
     protected Transaction(Parcel in) {
         this.date = in.readString();

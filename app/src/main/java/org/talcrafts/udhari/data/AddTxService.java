@@ -48,9 +48,9 @@ public class AddTxService extends IntentService {
 
     private void performInsert(ContentValues values) {
         if (getContentResolver().insert(DatabaseContract.CONTENT_URI, values) != null) {
-            Log.d(TAG, "Inserted new Transaction");
+            Log.d(TAG, "Inserted new TransactionEntity");
         } else {
-            Log.w(TAG, "Error inserting new Transaction");
+            Log.w(TAG, "Error inserting new TransactionEntity");
         }
     }
 
@@ -61,9 +61,9 @@ public class AddTxService extends IntentService {
         String id = values.getAsString(DatabaseContract.TableTransactions.COL_ID);
         values.remove(DatabaseContract.TableTransactions.COL_ID);
         if (getContentResolver().update(DatabaseContract.CONTENT_URI, values, where.toString(), new String[]{id}) > 0) {
-            Log.d(TAG, "Updated new Transaction");
+            Log.d(TAG, "Updated new TransactionEntity");
         } else {
-            Log.w(TAG, "Error inserting new Transaction");
+            Log.w(TAG, "Error inserting new TransactionEntity");
         }
     }
 }
