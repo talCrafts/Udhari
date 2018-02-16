@@ -2,10 +2,6 @@ package org.talcrafts.udhari;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothManager;
-import android.bluetooth.le.BluetoothLeAdvertiser;
-import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BTCheck.Message finalMessage = BTCheck.check(getApplicationContext());
+        BTCheck.Message finalMessage=new BTCheck.Message("Not Required","Skipping for Now");
+        //BTCheck.Message finalMessage = BTCheck.check(getApplicationContext());
         showFinishingAlertDialog(finalMessage.title,finalMessage.message);
 
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);

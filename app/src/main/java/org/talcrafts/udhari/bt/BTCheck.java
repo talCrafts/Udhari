@@ -4,6 +4,7 @@ package org.talcrafts.udhari.bt;
  * Created by sushma on 15/2/18.
  */
 
+import android.content.Context;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.bluetooth.BluetoothAdapter;
@@ -39,14 +40,14 @@ public class BTCheck {
         final public String title;
         final public String message;
 
-        Message(java.lang.String title, java.lang.String message) {
+        public Message(java.lang.String title, java.lang.String message) {
             this.title = title;
             this.message = message;
         }
     }
 
 
-    public static Message check(ApplicationContext context) {
+    public static Message check(Context context) {
         // BT LE
         BluetoothManager manager = (BluetoothManager) context.getSystemService(
                 Context.BLUETOOTH_SERVICE);
@@ -61,6 +62,8 @@ public class BTCheck {
             BluetoothLeAdvertiser adv = btAdapter.getBluetoothLeAdvertiser();
             //TODO callback when someone scans
         }
+
+        return new Message("All Good","Bluetooth new discovery");
         // BT LE
     }
 
