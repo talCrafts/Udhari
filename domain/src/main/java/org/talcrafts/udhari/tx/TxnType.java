@@ -5,7 +5,8 @@ package org.talcrafts.udhari.tx;
  */
 public enum TxnType {
 
-    LENT("Lent"), BORROW("Borrow");
+    LENT("Lent"),
+    BORROW("Borrow");
 
     private final String mString;
 
