@@ -5,15 +5,15 @@ package org.talcrafts.udhari.repository;
  */
 
 public class TXCache {
-    void isCached();
+    void isCached(){return;};
 
-    void isExpired();
+    void isExpired(){return;};
 
-    void clear();
+    void clear(){return;};
 
-    void get();
+    void get(){return;};
 
-    void set();
+    void set(){return;};
 
-    void save();
+    void save(){return;};
 }

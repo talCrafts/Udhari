@@ -5,5 +5,9 @@ package org.talcrafts.udhari.repository;
  */
 
 public class TXRemote {
-    void get();
+    public void get() {
+        return;
+    }
+
+    ;
 }

@@ -5,9 +5,9 @@ package org.talcrafts.udhari.repository;
  */
 
 public class TXDataStore {
-    void clear();
+    void clear(){return;}
 
-    void save();
+    void save(){return;}
 
-    void get();
+    void get(){return;}
 }
