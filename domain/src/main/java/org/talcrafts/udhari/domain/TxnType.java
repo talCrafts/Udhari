@@ -1,4 +1,4 @@
-package org.talcrafts.udhari.tx;
+package org.talcrafts.udhari.domain;
 
 /**
  * Created by ubuntu on 26/2/17.

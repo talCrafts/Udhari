@@ -1,4 +1,4 @@
-package org.talcrafts.udhari;
+package org.talcrafts.udhari.domain;
 
 /**
  * Created by sushma on 15/2/18.
