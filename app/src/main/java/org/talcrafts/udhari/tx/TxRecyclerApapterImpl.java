@@ -13,6 +13,7 @@ import android.widget.TextView;
 import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.CommonRecyclerAdapter;
 import org.talcrafts.udhari.data.Transaction;
+import org.talcrafts.udhari.domain.TxnType;
 
 /**
  * Created by ashwaghm on 20-Jan-17.

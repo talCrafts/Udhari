@@ -19,6 +19,7 @@ import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.AddTxService;
 import org.talcrafts.udhari.data.DatabaseContract;
 import org.talcrafts.udhari.data.Transaction;
+import org.talcrafts.udhari.domain.TxnType;
 import org.talcrafts.udhari.neighbours.NeighbourActivity;
 
 import java.util.Calendar;

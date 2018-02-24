@@ -1,4 +1,4 @@
-package org.talcrafts.udhari.repository;
+package org.talcrafts.udhari.domain.repository;
 
 import org.talcrafts.udhari.domain.TransactionEntity;
 
