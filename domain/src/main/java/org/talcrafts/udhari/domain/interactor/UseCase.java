@@ -5,8 +5,5 @@ package org.talcrafts.udhari.domain.interactor;
  */
 
 public abstract class UseCase<Params> {
-    public void execute(Params params) {
-        //TODO something
-        return;
-    }
+    public abstract void execute(Params params);
 }
