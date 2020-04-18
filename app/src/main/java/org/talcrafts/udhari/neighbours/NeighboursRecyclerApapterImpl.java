@@ -2,11 +2,12 @@ package org.talcrafts.udhari.neighbours;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.talcrafts.udhari.QrCodeActivity;
 import org.talcrafts.udhari.R;
@@ -18,12 +19,12 @@ import org.talcrafts.udhari.wifi.WIFIEndPoint;
  * Created by ashwaghm on 20-Jan-17.
  */
 
-public class NeighboursRecyclerApapterImpl extends CommonRecyclerAdapter<WIFIEndPoint,NeighboursRecyclerApapterImpl.NeighbourViewHolder> {
+public class NeighboursRecyclerApapterImpl extends CommonRecyclerAdapter<WIFIEndPoint, NeighboursRecyclerApapterImpl.NeighbourViewHolder> {
 
     private WIFIContent content;
 
     public NeighboursRecyclerApapterImpl(WIFIContent content) {
-        this.content=content;
+        this.content = content;
     }
 
     @Override

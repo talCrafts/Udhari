@@ -10,14 +10,16 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.talcrafts.udhari.bt.BTCheck;
 import org.talcrafts.udhari.data.DatabaseContract;
@@ -36,9 +38,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BTCheck.Message finalMessage=new BTCheck.Message("Not Required","Skipping for Now");
+        BTCheck.Message finalMessage = new BTCheck.Message("Not Required", "Skipping for Now");
         //BTCheck.Message finalMessage = BTCheck.check(getApplicationContext());
-        showFinishingAlertDialog(finalMessage.title,finalMessage.message);
+        showFinishingAlertDialog(finalMessage.title, finalMessage.message);
 
         WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         NotificationReceiver receiver = new NotificationReceiver(wifiManager);

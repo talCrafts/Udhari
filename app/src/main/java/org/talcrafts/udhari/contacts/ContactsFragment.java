@@ -2,13 +2,14 @@ package org.talcrafts.udhari.contacts;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import org.talcrafts.udhari.R;
 
@@ -26,6 +27,7 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
         return inflater.inflate(R.layout.contact_list_fragment,
                 container, false);
     }
+
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return null;

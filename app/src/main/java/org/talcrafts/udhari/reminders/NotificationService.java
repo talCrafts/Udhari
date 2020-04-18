@@ -3,7 +3,8 @@ package org.talcrafts.udhari.reminders;
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.support.v7.app.NotificationCompat;
+
+import androidx.core.app.NotificationCompat;
 
 import org.talcrafts.udhari.R;
 
@@ -22,11 +23,11 @@ public class NotificationService extends IntentService {
     public void onCreate() {
         super.onCreate();
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        NotificationCompat.Builder builder= new NotificationCompat.Builder(getApplicationContext());
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
         builder.setContentTitle(getString(R.string.time_to_practice));
         builder.setContentText(getString(R.string.it_is_time_to_practice));
         builder.setSmallIcon(R.drawable.sym_action_email);
-        mNotificationManager.notify(mNotificationId,builder.build());
+        mNotificationManager.notify(mNotificationId, builder.build());
     }
 
     @Override

@@ -1,11 +1,12 @@
 package org.talcrafts.udhari.data;
 
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Base class for the RecyclerView adapter to display flashcards.
  */
-public abstract class CommonRecyclerAdapter<T,VH extends RecyclerView.ViewHolder>
+public abstract class CommonRecyclerAdapter<T, VH extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<VH> {
 
     /**

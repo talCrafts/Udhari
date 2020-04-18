@@ -4,9 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,6 +11,11 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.data.AddTxService;
@@ -29,11 +31,16 @@ import butterknife.ButterKnife;
 
 public class AddTxnActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, View.OnClickListener {
 
-    @BindView(R.id.text_date) TextInputEditText mTxnDate;
-    @BindView(R.id.amount) TextInputEditText mTxnAmount;
-    @BindView(R.id.party) TextInputEditText mParty;
-    @BindView(R.id.summary) TextInputEditText mSummary;
-    @BindView(R.id.dropdown_type) Spinner mType;
+    @BindView(R.id.text_date)
+    TextInputEditText mTxnDate;
+    @BindView(R.id.amount)
+    TextInputEditText mTxnAmount;
+    @BindView(R.id.party)
+    TextInputEditText mParty;
+    @BindView(R.id.summary)
+    TextInputEditText mSummary;
+    @BindView(R.id.dropdown_type)
+    Spinner mType;
     private long mDueDate = Long.MAX_VALUE;
     protected Transaction tx;
 

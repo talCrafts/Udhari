@@ -8,7 +8,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 public class TxProvider extends ContentProvider {
     private static final String TAG = TxProvider.class.getSimpleName();

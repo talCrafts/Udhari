@@ -1,9 +1,10 @@
 package org.talcrafts.udhari.neighbours;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.talcrafts.udhari.R;
 import org.talcrafts.udhari.wifi.WIFIContent;
@@ -17,7 +18,7 @@ public class NeighbourActivity extends AppCompatActivity {
 
     @BindView(R.id.neighbours_list)
     RecyclerView neighbourRecyclerView;
-    private static final int NEIGHBOUR_LOADER_ID=3;
+    private static final int NEIGHBOUR_LOADER_ID = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

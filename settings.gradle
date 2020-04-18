@@ -1,3 +1,4 @@
+rootProject.name='Udhari'
 include ':domain'
 include ':app'
 include ':data'
